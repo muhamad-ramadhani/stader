@@ -47,29 +47,43 @@ $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev
 sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin
 ```
 
-## 2. Install Node
+## 2. Create Users 
+- Buat user & isi detailnya
+```
+sudo adduser YOUR_USER_NAME
+```
+```
+sudo usermod -a -G sudo YOUR_USER_NAME
+```
+```
+su YOUR_USER_NAME
+```
+```
+cd
+```
+```
+mkdir ~/bin
+```
+
+## 3. Install Node
 ```
 wget https://dub.sh/linuxamd64 -O ~/bin/stader-cli
-```
-- Ke directory bin
-```
-cd $HOME/bin
 ```
 - Jadikan Executable File
 ```
 chmod +x ~/bin/stader-cli
 ```
-- Restart Terminal
+- Cek versi
 ```
-bash
+~/bin/stader-cli --version
 ```
 - Install Service
 ```
-stader-cli --allow-root service install
+~/bin/stader-cli service install
 ```
 - Run Wizard Node
 ```
-stader-cli --allow-root service config
+~/bin/stader-cli service config
 ```
 
 Akan muncul menu, follow step by step
@@ -78,7 +92,7 @@ Akan muncul menu, follow step by step
 - System-recommended
 - System-recommended
 - Isi moniker/graffiti/usernamemu (bebas)
-- https://beaconstate-goerli.chainsafe.io/
+- https://checkpoint-sync.goerli.ethpandaops.io/
 - Yes
 - No
 - Yes
@@ -93,14 +107,14 @@ Sync memakan waktu 1-3 Hari (Tunggu sampai selesai sebelum ke step selanjutnya)
 ## 3. Create Validator
 - Cek sync
 ```
-stader-cli --allow-root node sync
+~/bin/stader-cli node sync
 ```
 Jika muncul seperti di bawah, berarti sudah sync
 > Your primary execution client is fully synced.
 
 - Buat Wallet 
 ```
-stader-cli --allow-root wallet init
+~/bin/stader-cli wallet init
 ```
 Jangan Lupa untuk Backup
 
@@ -114,23 +128,23 @@ Jangan Lupa untuk Backup
 
 - Create Validator
 ```
-stader-cli --allow-root node register --on <MONIKER>
+~/bin/stader-cli node register --on <MONIKER>
 ```
 Ganti MONIKER menjadi terserah kalian (ga pakai <>)
 
 - Deposit SD Token
 ```
-stader-cli --allow-root node deposit-sd --amount 640
+~/bin/stader-cli node deposit-sd --amount 640
 ```
 
 - Deposit ETH
 ```
-stader-cli --allow-root node deposit --num-validators 1
+~/bin/stader-cli node deposit --num-validators 1
 ```
 
 - Cek Status
 ```
-stader-cli --allow-root node status
+~/bin/stader-cli node status
 ```
 
 ## DONE, UNTUK UPDATE SELANJUTNYA KALIAN BISA PANTAU <a href="https://t.me/PemulungAirdropID" target="_blank">CHANNEL KITA </a>
@@ -138,16 +152,16 @@ stader-cli --allow-root node status
 ## Perintah Berguna
 - Cek Status Service
 ```
-stader-cli --allow-root service status
+~/bin/stader-cli service status
 ```
 
 - Cek Logs Service
 ```
-stader-cli --allow-root service logs
+~/bin/stader-cli service logs
 ```
 
 - Cek Status Node
 ```
-stader-cli --allow-root node status
+~/bin/stader-cli node status
 ```
 
