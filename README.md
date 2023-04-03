@@ -104,7 +104,7 @@ Akan muncul menu, follow step by step
 
 Sync memakan waktu 1-3 Hari (Tunggu sampai selesai sebelum ke step selanjutnya)
 
-## 3. Create Validator
+## 4. Create Validator
 - Cek sync
 ```
 ~/bin/stader-cli node sync
